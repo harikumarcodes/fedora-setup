@@ -17,3 +17,19 @@ sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf -y install @multimedia \
   --setopt="install_weak_deps=False" \
   --exclude=PackageKit-gstreamer-plugin
+
+# Nerd Font
+font_name="JetBrainsMono"
+
+font_dir="$HOME/.local/share/fonts/$font_name"
+temp_dir="$(mktemp -d)"
+trap 'rm -rf "$temp_dir"' EXIT
+
+wget -O "$temp_dir/$font_name.tar.xz" \
+  "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font_name.tar.xz"
+
+mkdir -p "$font_dir"
+tar -xf "$temp_dir/$font_name.tar.xz" \
+  --directory "$font_dir"
+
+fc-cache -fv
