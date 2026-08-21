@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+original_dir="$PWD"
+trap 'cd "$original_dir"' EXIT
+
 source /etc/os-release
 
 if [[ "$ID" != "fedora" ]]; then
@@ -58,6 +61,16 @@ curl -f https://zed.dev/install.sh | sh
 
 # Zsh
 chsh -s "$(which zsh)"
+
+# Dotfiles
+git clone https://github.com/harikumarcodes/dotfiles.git ~/dotfiles
+stow -d ~/dotfiles --adopt \
+  ghostty \
+  helix \
+  yazi \
+  zsh
+cd ~/dotfiles
+git restore .
 
 
 # Keyboard
