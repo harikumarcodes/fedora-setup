@@ -56,6 +56,9 @@ sudo dnf -y install \
 # Official Installers
 curl -f https://zed.dev/install.sh | sh
 
+# Zsh
+chsh -s "$(which zsh)"
+
 
 # Keyboard
 # -------------------------------------------------------------------
