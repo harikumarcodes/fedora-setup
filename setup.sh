@@ -55,3 +55,41 @@ sudo dnf -y install \
 
 # Official Installers
 curl -f https://zed.dev/install.sh | sh
+
+
+# Keyboard
+# -------------------------------------------------------------------
+
+# Super & Caps
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:super', 'shift:both_capslock_cancel']"
+
+# Minimise Window
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
+
+# Logout
+gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Shift>l']"
+
+# Clear Super + Semicolon (emoji picker shortcut)
+gsettings set org.freedesktop.ibus.panel.emoji hotkey "@as []"
+
+# Workspaces
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>h']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Alt>h']"
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>j']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Super><Alt>j']"
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>k']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Alt>k']"
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>l']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Alt>l']"
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>semicolon']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Alt>semicolon']"
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>apostrophe']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Alt>apostrophe']"
