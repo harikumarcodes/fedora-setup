@@ -33,3 +33,25 @@ tar -xf "$temp_dir/$font_name.tar.xz" \
   --directory "$font_dir"
 
 fc-cache -fv
+
+# Third-party Packages
+sudo dnf -y copr enable atim/starship
+sudo dnf -y copr enable scottames/ghostty
+sudo dnf -y copr enable lihaohong/yazi
+
+sudo dnf -y install \
+  ghostty \
+  starship \
+  yazi 
+
+# Fedora Packages
+sudo dnf -y install \
+  gnome-tweaks \
+  git \
+  helix \
+  stow \
+  zsh \
+  thunderbird
+
+# Official Installers
+curl -f https://zed.dev/install.sh | sh
