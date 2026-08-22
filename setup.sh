@@ -134,3 +134,17 @@ gsettings set "$custom_keybinding:$terminal_shortcut" binding '<Super>t'
 gsettings set "$custom_keybinding:$zed_shortcut" name 'Editor'
 gsettings set "$custom_keybinding:$zed_shortcut" command "$HOME/.local/bin/zed"
 gsettings set "$custom_keybinding:$zed_shortcut" binding '<Super>e'
+
+
+# JavaScript Development
+# -------------------------------------------------------------------
+
+# fnm
+curl -fsSL https://fnm.vercel.app/install | bash
+source ~/.bashrc
+
+# Node
+fnm install --lts
+
+# pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
