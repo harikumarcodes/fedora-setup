@@ -110,3 +110,27 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Al
 # Windows
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>c']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
+
+# Apps
+gsettings set org.gnome.shell.keybindings toggle-quick-settings "[]"
+gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>s']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys email "['<Super>m']"
+
+# Custom Shortcuts
+custom_keybinding="org.gnome.settings-daemon.plugins.media-keys.custom-keybinding"
+terminal_shortcut="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+zed_shortcut="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$terminal_shortcut', '$zed_shortcut']"
+
+# Terminal
+gsettings set "$custom_keybinding:$terminal_shortcut" name 'Terminal'
+gsettings set "$custom_keybinding:$terminal_shortcut" command 'ghostty'
+gsettings set "$custom_keybinding:$terminal_shortcut" binding '<Super>t'
+
+# Zed
+gsettings set "$custom_keybinding:$zed_shortcut" name 'Editor'
+gsettings set "$custom_keybinding:$zed_shortcut" command "$HOME/.local/bin/zed"
+gsettings set "$custom_keybinding:$zed_shortcut" binding '<Super>e'
