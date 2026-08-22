@@ -79,10 +79,7 @@ git restore .
 # Super & Caps
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:super', 'shift:both_capslock_cancel']"
 
-# Minimise Window
-gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
-
-# Logout
+# Lock Screen
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Shift>l']"
 
 # Clear Super + Semicolon (emoji picker shortcut)
@@ -109,3 +106,7 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Al
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>apostrophe']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Alt>apostrophe']"
+
+# Windows
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>c']"
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
