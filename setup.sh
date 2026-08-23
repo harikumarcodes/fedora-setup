@@ -50,6 +50,7 @@ sudo dnf -y install \
 # Fedora Packages
 sudo dnf -y install \
   gnome-tweaks \
+  dconf-editor \
   git \
   helix \
   stow \
