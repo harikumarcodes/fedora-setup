@@ -10,7 +10,10 @@ if [[ "$ID" != "fedora" ]]; then
   exit 1
 fi
 
+
 # RPM Fusion
+# -------------------------------------------------------------------
+# Repos
 sudo dnf install -y \
   "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
   "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
@@ -20,6 +23,13 @@ sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf -y install @multimedia \
   --setopt="install_weak_deps=False" \
   --exclude=PackageKit-gstreamer-plugin
+
+# AMD Hardware Codecs
+gpu_info="$(lspci | grep -Ei 'VGA|3D|Display')"
+if [[ $gpu_info =~ AMD|ATI ]]; then
+  sudo dnf -y install mesa-va-drivers-freeworld
+fi
+
 
 # Nerd Font
 font_name="JetBrainsMono"
