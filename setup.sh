@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+set -eo pipefail
+
 original_dir="$PWD"
 temp_dir="$(mktemp -d)"
 
