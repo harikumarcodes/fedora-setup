@@ -1,7 +1,14 @@
 #!/usr/bin/bash
 
 original_dir="$PWD"
-trap 'cd "$original_dir"' EXIT
+temp_dir="$(mktemp -d)"
+
+cleanup() {
+  cd "$original_dir"
+  [[ -n $temp_dir ]] && rm -rf "$temp_dir"
+}
+
+trap cleanup EXIT
 
 source /etc/os-release
 
@@ -34,10 +41,7 @@ fi
 # Nerd Font
 # -------------------------------------------------------------------
 font_name="JetBrainsMono"
-
 font_dir="$HOME/.local/share/fonts/$font_name"
-temp_dir="$(mktemp -d)"
-trap 'rm -rf "$temp_dir"' EXIT
 
 wget -O "$temp_dir/$font_name.tar.xz" \
   "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font_name.tar.xz"
