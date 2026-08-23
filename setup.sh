@@ -32,6 +32,7 @@ fi
 
 
 # Nerd Font
+# -------------------------------------------------------------------
 font_name="JetBrainsMono"
 
 font_dir="$HOME/.local/share/fonts/$font_name"
@@ -45,8 +46,11 @@ mkdir -p "$font_dir"
 tar -xf "$temp_dir/$font_name.tar.xz" \
   --directory "$font_dir"
 
-fc-cache -fv
+fc-cache -f
 
+
+# Install Packages
+# -------------------------------------------------------------------
 # Third-party Packages
 sudo dnf -y copr enable atim/starship
 sudo dnf -y copr enable scottames/ghostty
