@@ -3,7 +3,10 @@ Recreate my personal setup on a clean, up-to-date Fedora installation.
 
 
 ## What It Configures
-### RPM Fusion and multimedia codecs
+### RPM Fusion
+- Multimedia Codecs
+- Hardware Codecs if an AMD GPU detected
+
 
 ### JetBrainsMono Nerd Font
 
