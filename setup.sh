@@ -60,23 +60,9 @@ sudo dnf -y install \
 # Official Installers
 curl -f https://zed.dev/install.sh | sh
 
-# Zsh
-chsh -s "$(which zsh)"
-
-# Dotfiles
-git clone https://github.com/harikumarcodes/dotfiles.git ~/dotfiles
-stow -d ~/dotfiles --adopt \
-  ghostty \
-  helix \
-  yazi \
-  zsh
-cd ~/dotfiles
-git restore .
-
 
 # Keyboard
 # -------------------------------------------------------------------
-
 # Super & Caps
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:super', 'shift:both_capslock_cancel']"
 
@@ -139,7 +125,6 @@ gsettings set "$custom_keybinding:$zed_shortcut" binding '<Super>e'
 
 # JavaScript Development
 # -------------------------------------------------------------------
-
 # fnm
 curl -fsSL https://fnm.vercel.app/install | bash
 source ~/.bashrc
@@ -149,3 +134,21 @@ fnm install --lts
 
 # pnpm
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+
+# Dotfiles
+# -------------------------------------------------------------------
+git clone https://github.com/harikumarcodes/dotfiles.git ~/dotfiles
+stow -d ~/dotfiles --adopt \
+  ghostty \
+  helix \
+  yazi \
+  zsh
+cd ~/dotfiles
+git restore .
+
+
+# Shell
+# -------------------------------------------------------------------
+chsh -s "$(which zsh)"
+
