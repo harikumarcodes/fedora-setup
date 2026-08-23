@@ -49,19 +49,8 @@ tar -xf "$temp_dir/$font_name.tar.xz" \
 fc-cache -f
 
 
-# Install Packages
-# -------------------------------------------------------------------
-# Third-party Packages
-sudo dnf -y copr enable atim/starship
-sudo dnf -y copr enable scottames/ghostty
-sudo dnf -y copr enable lihaohong/yazi
-
-sudo dnf -y install \
-  ghostty \
-  starship \
-  yazi 
-
 # Fedora Packages
+# -------------------------------------------------------------------
 sudo dnf -y install \
   gnome-tweaks \
   dconf-editor \
@@ -71,8 +60,36 @@ sudo dnf -y install \
   zsh \
   thunderbird
 
+
+# Third-party Packages
+# -------------------------------------------------------------------
+sudo dnf -y copr enable atim/starship
+sudo dnf -y copr enable scottames/ghostty
+sudo dnf -y copr enable lihaohong/yazi
+
+sudo dnf -y install \
+  ghostty \
+  starship \
+  yazi 
+
+
 # Official Installers
+# -------------------------------------------------------------------
+# zed
 curl -f https://zed.dev/install.sh | sh
+
+
+# JavaScript
+# -------------------------------------------------------------------
+# fnm
+curl -fsSL https://fnm.vercel.app/install | bash
+source ~/.bashrc
+
+# Node
+fnm install --lts
+
+# pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 
 # Keyboard
@@ -135,19 +152,6 @@ gsettings set "$custom_keybinding:$terminal_shortcut" binding '<Super>t'
 gsettings set "$custom_keybinding:$zed_shortcut" name 'Editor'
 gsettings set "$custom_keybinding:$zed_shortcut" command "$HOME/.local/bin/zed"
 gsettings set "$custom_keybinding:$zed_shortcut" binding '<Super>e'
-
-
-# JavaScript Development
-# -------------------------------------------------------------------
-# fnm
-curl -fsSL https://fnm.vercel.app/install | bash
-source ~/.bashrc
-
-# Node
-fnm install --lts
-
-# pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 
 # Dotfiles
