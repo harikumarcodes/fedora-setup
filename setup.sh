@@ -98,6 +98,11 @@ fnm install --lts
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 
+# Git
+# -------------------------------------------------------------------
+git config --global init.defaultBranch main
+
+
 # Keyboard
 # -------------------------------------------------------------------
 # Super & Caps
